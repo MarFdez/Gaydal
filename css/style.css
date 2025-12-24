@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #ff0000 25%,
+    #ffffff 50%,
+    #ff0000 75%,
+    #ffffff 100%
+  );
+  background-size: 400% 100%;
+  animation: gradientMove 8s ease infinite;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  padding: 20px;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  text-align: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+h1 {
+  font-size: clamp(2rem, 8vw, 5rem);
+  font-style: italic;
+  color: #1a1a1a;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.cat-container {
+  display: inline-block;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+}
+
+.cat {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  display: block;
+}
+
+.continue-btn {
+  margin-top: 30px;
+  padding: 15px 40px;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-weight: bold;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.continue-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+}
+
+.continue-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.form-container {
+  display: none;
+  margin-top: 30px;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-container.active {
+  display: block;
+}
+
+.question {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.question-text {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  color: #1a1a1a;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.button-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.answer-btn {
+  padding: 12px 30px;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-weight: bold;
+  border: 3px solid #ff0000;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: white;
+  color: #ff0000;
+  min-width: 80px;
+}
+
+.answer-btn:hover {
+  background-color: #ff0000;
+  color: white;
+}
+
+.answer-btn.selected {
+  background-color: #ff0000;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+
+  .cat-container {
+    padding: 15px;
+  }
+
+  .continue-btn {
+    padding: 12px 30px;
+  }
+
+  .form-container {
+    padding: 20px;
+  }
+
+  .button-group {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .cat-container {
+    padding: 10px;
+  }
+
+  .form-container {
+    padding: 15px;
+  }
+}

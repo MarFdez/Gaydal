@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/img/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="Gaydal" />
+    <link rel="manifest" href="/img/site.webmanifest" />
+
+    <title>Bon Nadal, gay <3</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1><strike>graphic design</strike><br />Nadal is<br />my passion!!</h1>
+      <div class="cat-container">
+        <img src="./img/gaycars.gif" alt="Cat" class="cat" />
+      </div>
+      <br />
+      <button class="continue-btn" onclick="showForm()">Comença :3</button>
+
+      <div class="form-container" id="formContainer">
+        <div class="question" id="question1" style="display: none">
+          <div class="question-text">Pregunta 1?</div>
+          <h4>Ets gay? :3</h4>
+          <div class="button-group">
+            <button class="answer-btn" onclick="selectAnswer(this, 1, 'Sí')">
+              Sí
+            </button>
+            <button class="answer-btn" onclick="selectAnswer(this, 1, 'No')">
+              No
+            </button>
+          </div>
+        </div>
+
+        <div class="question" id="question2" style="display: none">
+          <div class="question-text">Pregunta 2?</div>
+          <h4>T'agrada el grup The Last Dinner Party?</h4>
+          <br />
+          <div class="button-group">
+            <button class="answer-btn" onclick="selectAnswer(this, 2, 'Sí')">
+              Sí
+            </button>
+            <button class="answer-btn" onclick="selectAnswer(this, 2, 'No')">
+              No
+            </button>
+          </div>
+        </div>
+
+        <div class="question" id="question3" style="display: none">
+          <div class="question-text">Pregunta 3?</div>
+          <h4>Estàs disponible el 11 de Febrer a les 7 de la tarda?</h4>
+          <br />
+          <div class="button-group">
+            <button class="answer-btn" onclick="selectAnswer(this, 3, 'Sí')">
+              Sí
+            </button>
+            <button class="answer-btn" onclick="selectAnswer(this, 3, 'No')">
+              No
+            </button>
+          </div>
+        </div>
+
+        <button
+          class="continue-btn"
+          id="completeBtn"
+          style="display: none"
+          onclick="checkAnswers()"
+        >
+          Enviaaar :3
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let answers = {
+        q1: null,
+        q2: null,
+        q3: null,
+      };
+
+      function showForm() {
+        document.getElementById("formContainer").classList.add("active");
+        document.querySelector(".continue-btn").style.display = "none";
+        document.getElementById("question1").style.display = "block";
+      }
+
+      function selectAnswer(button, questionNum, answer) {
+        const buttons = button.parentElement.querySelectorAll(".answer-btn");
+        buttons.forEach((btn) => btn.classList.remove("selected"));
+        button.classList.add("selected");
+
+        answers["q" + questionNum] = answer;
+
+        setTimeout(() => {
+          if (questionNum === 1) {
+            document.getElementById("question2").style.display = "block";
+          } else if (questionNum === 2) {
+            document.getElementById("question3").style.display = "block";
+          } else if (questionNum === 3) {
+            document.getElementById("completeBtn").style.display =
+              "inline-block";
+          }
+        }, 500);
+      }
+
+      function checkAnswers() {
+        if (answers.q1 === "Sí" && answers.q2 === "Sí" && answers.q3 === "Sí") {
+          alert("Mira'm :3")
+        } else if (
+          answers.q1 === "No" &&
+          answers.q2 === "Sí" &&
+          answers.q3 === "Sí"
+        ) {
+          alert(
+            "moltes gràcies per participar!1!!1!!1 més sort a la propera👍"
+          );
+        } else if (answers.q2 === "Sí" && answers.q3 === "Sí") {
+          alert(
+            "Venc entrada a preu reduït, 80€!!1!11!!1! més informació per whatsapp👍"
+          );
+        }  else if (answers.q1 === "No" && answers.q2 === "No" && answers.q3 === "No") {
+            window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_self");
+        }
+        else if (answers.q3 === "No") {
+          alert("vols un petonet? 🥺");
+        } 
+      }
+    </script>
+  </body>
+</html>
